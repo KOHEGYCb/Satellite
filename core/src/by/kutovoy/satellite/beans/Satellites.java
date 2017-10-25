@@ -1,5 +1,7 @@
 package by.kutovoy.satellite.beans;
 
+import by.kutovoy.satellite.positions.NullPosition;
+import by.kutovoy.satellite.positions.NullScale;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +29,15 @@ public class Satellites {
         return str;
     }
     
-    public void draw(Batch bath){
+    public static void draw(Batch batch){
         for (Satellite satellite : INSTANCE){
-            
+            int x = satellite.getPosition().getX() + NullPosition.getINSTANSE().getX();
+        int y = satellite.getPosition().getY() + NullPosition.getINSTANSE().getY();
+        batch.draw(satellite.getTexture(), x, y, satellite.getSize().getX() * (float) NullScale.INSTANSE, satellite.getSize().getY() * (float) NullScale.INSTANSE);
         }
     }
     
-    public void dispose(){
+    public static void dispose(){
         for (Satellite satellite : INSTANCE){
             satellite.dispose();
         }

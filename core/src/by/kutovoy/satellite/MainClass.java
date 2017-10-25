@@ -1,6 +1,8 @@
 package by.kutovoy.satellite;
 
 import by.kutovoy.satellite.beans.Planet;
+import by.kutovoy.satellite.beans.Satellite;
+import by.kutovoy.satellite.beans.Satellites;
 import by.kutovoy.satellite.enums.Constants;
 import by.kutovoy.satellite.enums.Strings;
 import by.kutovoy.satellite.positions.Position;
@@ -21,9 +23,17 @@ public class MainClass extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        planet = new Planet(new Position(10, 10), new Texture(Strings.getIMAGE_PLANET_EARTH()));
+        planet = new Planet(new Position(10, 10), new Texture(Strings.IMAGE_PLANET_EARTH));
+        Satellites.getINSTANCE().add(new Satellite(new Position(200, 200)));
 //        s = new Satellite();
     }
+
+//    int timer = 0;
+//    double x = 0;
+//    double y = 0;
+//    double deg = 0;
+
+ 
 
 //    int timer = 0;
 //    double x = 0;
@@ -50,7 +60,8 @@ public class MainClass extends ApplicationAdapter {
 //            }
 //            double x1 = x * PlanetParameters.getRADIUS(), y1 = y * PlanetParameters.getRADIUS();
             batch.begin();
-            planet.draw(batch);
+//            planet.draw(batch);
+            Satellites.draw(batch);
 //            batch.draw(img, PlanetParameters.getX(), PlanetParameters.getY(), PlanetParameters.getRADIUS(), PlanetParameters.getRADIUS());
 //		batch.draw(s.getTexture(), (s.getxPos()+PlanetParameters.getX()), (s.getyPos()+PlanetParameters.getY()));
 //            batch.draw(s.getTexture(), (int) x1 + PlanetParameters.getX(), (int) y1 + PlanetParameters.getY(), 16, 16);
@@ -69,5 +80,6 @@ public class MainClass extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
         planet.dispose();
+        Satellites.dispose();
     }
 }
