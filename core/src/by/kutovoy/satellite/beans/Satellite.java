@@ -1,5 +1,6 @@
 package by.kutovoy.satellite.beans;
 
+import by.kutovoy.satellite.positions.Position;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 /**
@@ -7,6 +8,10 @@ import com.badlogic.gdx.graphics.g2d.Batch;
  * @author dmitry
  */
 public class Satellite extends Entity{
+    
+    private Planet planet;
+    private Position position;
+    
 
     @Override
     public void draw(Batch batch) {
@@ -15,7 +20,7 @@ public class Satellite extends Entity{
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "\nSatellite:\n   ID: " + getId();
     }
     
 }

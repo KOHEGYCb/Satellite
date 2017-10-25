@@ -1,5 +1,6 @@
 package by.kutovoy.satellite.beans;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,12 +17,25 @@ public class Satellites {
     public static List<Satellite> getINSTANCE(){
         return INSTANCE;
     }
-
-    public void addSatellite(Satellite satellite){
-        INSTANCE.add(satellite);
+    
+    @Override
+    public String toString(){
+        String str = "";
+        for (Satellite INSTANCE1 : INSTANCE) {
+            str = str + INSTANCE1 + "\n";
+        }
+        return str;
     }
     
-    public void removeSatellite(Satellite satellite){
-        INSTANCE.remove(satellite.getId());
+    public void draw(Batch bath){
+        for (Satellite satellite : INSTANCE){
+            
+        }
+    }
+    
+    public void dispose(){
+        for (Satellite satellite : INSTANCE){
+            satellite.dispose();
+        }
     }
 }

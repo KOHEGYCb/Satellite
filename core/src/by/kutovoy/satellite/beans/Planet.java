@@ -27,7 +27,7 @@ public class Planet extends Entity {
 
     @Override
     public String toString() {
-        return "Planet:\n ";
+        return "Planet:\n   ID: " + getId();
     }
 
 }
