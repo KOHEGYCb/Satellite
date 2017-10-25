@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package by.kutovoy.satellite.desktop;
 
 //import com.mygdx.game.enums.Constants;
 //import com.mygdx.game.PlanetParameters;
 import by.kutovoy.satellite.desktop.enums.Icons;
 import by.kutovoy.satellite.desktop.enums.Other;
+import by.kutovoy.satellite.positions.NullPosition;
+import by.kutovoy.satellite.positions.NullScale;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,17 +26,17 @@ public class Frame extends javax.swing.JFrame {
         this.btnSceneLeft.setIcon(Icons.getBTN_ICON_LEFT());
         this.btnSceneRight.setIcon(Icons.getBTN_ICON_RIGHT());
         this.btnSceneUp.setIcon(Icons.getBTN_ICON_UP());
-        
+
         this.btnSceneDown.setText("");
         this.btnSceneLeft.setText("");
         this.btnSceneRight.setText("");
         this.btnSceneUp.setText("");
-        
+
         this.btnSceneDown.setPreferredSize(new Dimension(Other.getBTN_WIDTH(), Other.getBTN_HEIGHT()));
         this.btnSceneLeft.setPreferredSize(new Dimension(Other.getBTN_WIDTH(), Other.getBTN_HEIGHT()));
         this.btnSceneRight.setPreferredSize(new Dimension(Other.getBTN_WIDTH(), Other.getBTN_HEIGHT()));
         this.btnSceneUp.setPreferredSize(new Dimension(Other.getBTN_WIDTH(), Other.getBTN_HEIGHT()));
-        
+
     }
 
     /**
@@ -182,31 +179,31 @@ public class Frame extends javax.swing.JFrame {
 //            System.out.println("EEEERRROOORRR");
 //        }
 //        jLabel1.setText(PlanetParameters.getRADIUS() + "");
-        
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void btnSceneUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneUpActionPerformed
-//        Constants.setY(Constants.getY() - Other.getY_STEP());
+        NullPosition.setINSTANSE_Y(-Other.getY_STEP());
     }//GEN-LAST:event_btnSceneUpActionPerformed
 
     private void btnZoomUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnZoomUpMouseClicked
-//        Constants.setSCALE((float) (Constants.getSCALE() + Other.getSCALE_STEP()));
+        NullScale.setScale(Other.getSCALE_STEP());
     }//GEN-LAST:event_btnZoomUpMouseClicked
 
     private void btnZoomDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnZoomDownMouseClicked
-//        Constants.setSCALE((float) (Constants.getSCALE() - Other.getSCALE_STEP()));
+        NullScale.setScale(-Other.getSCALE_STEP());
     }//GEN-LAST:event_btnZoomDownMouseClicked
 
     private void btnSceneDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneDownMouseClicked
-//        Constants.setY(Constants.getY() + Other.getY_STEP());
+        NullPosition.setINSTANSE_Y(Other.getY_STEP());
     }//GEN-LAST:event_btnSceneDownMouseClicked
 
     private void btnSceneRightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneRightMouseClicked
-//        Constants.setX(Constants.getX() - Other.getX_STEP());
+        NullPosition.setINSTANSE_X(-Other.getX_STEP());
     }//GEN-LAST:event_btnSceneRightMouseClicked
 
     private void btnSceneLeftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneLeftMouseClicked
-//        Constants.setX(Constants.getX() + Other.getX_STEP());
+        NullPosition.setINSTANSE_X(Other.getX_STEP());
     }//GEN-LAST:event_btnSceneLeftMouseClicked
 
     /**
