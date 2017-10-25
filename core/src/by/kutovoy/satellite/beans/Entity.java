@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
  */
 public abstract class Entity {
 
-    private int amount = 0;
+    private static int amount = 0;
     private int id;
     private Position position;
     private Size size;
@@ -24,12 +24,14 @@ public abstract class Entity {
     }
 
     public Entity(Position position, Texture texture, Size size) {
+        setId();
         this.position = position;
         this.texture = texture;
         this.size = size;
     }
 
     public Entity(Position position, String texture, Size size) {
+        setId();
         this.position = position;
         this.texture = new Texture(texture);
         this.size = size;
@@ -89,15 +91,15 @@ public abstract class Entity {
     /**
      * @return the id
      */
-    private void getId() {
-        amount++;
-        this.id = amount;
+    public int getId() {
+        return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
-        this.id = id;
+    private void setId() {
+        amount++;
+        this.id = amount;
     }
 }

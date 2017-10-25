@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
  *
  * @author dmitry
  */
-public class Satellite {
+public class Satellite111 {
 
     private int xPos;
     private int yPos;
@@ -14,7 +14,7 @@ public class Satellite {
     private int h;
     private int m;
 
-    public Satellite() {
+    public Satellite111() {
         this.xPos = 1;
         this.yPos = 0;
         this.h = PlanetParameters.getRADIUS() + 100;
@@ -22,7 +22,7 @@ public class Satellite {
         texture = new Texture("satellite_red.png");
     }
     
-    public Satellite(int xPos, int yPos, int h, int m){
+    public Satellite111(int xPos, int yPos, int h, int m){
         
     }
 

@@ -1,4 +1,4 @@
-package by.kutovoy.satellite.desktop.enums;
+package by.kutovoy.satellite.enums;
 
 /**
  *
