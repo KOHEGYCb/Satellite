@@ -11,13 +11,13 @@ public class GDX extends ApplicationAdapter {
 
     SpriteBatch batch;
     Texture img;
-    Satellite s;
+    Satellite111 s;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         img = new Texture("planet.png");
-        s = new Satellite();
+        s = new Satellite111();
     }
 
     int timer = 0;

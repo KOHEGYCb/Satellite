@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package by.kutovoy.satellite.desktop;
+package by.kutovoy.satellite.jFrames;
 
 //import com.mygdx.game.enums.Constants;
 //import com.mygdx.game.PlanetParameters;
-import by.kutovoy.satellite.desktop.enums.Icons;
-import by.kutovoy.satellite.desktop.enums.Other;
+import by.kutovoy.satellite.enums.Icons;
+import by.kutovoy.satellite.enums.Other;
+import by.kutovoy.satellite.positions.NullPosition;
+import by.kutovoy.satellite.positions.NullScale;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,28 +15,30 @@ import javax.swing.JButton;
  *
  * @author dmitry
  */
-public class Frame extends javax.swing.JFrame {
+public class Control extends javax.swing.JFrame {
 
     /**
      * Creates new form Frame
      */
-    public Frame() {
+    public Control() {
         initComponents();
-        this.btnSceneDown.setIcon(Icons.getBTN_ICON_DOWN());
-        this.btnSceneLeft.setIcon(Icons.getBTN_ICON_LEFT());
-        this.btnSceneRight.setIcon(Icons.getBTN_ICON_RIGHT());
-        this.btnSceneUp.setIcon(Icons.getBTN_ICON_UP());
-        
+        this.btnSceneDown.setIcon(Icons.BTN_ICON_DOWN);
+        this.btnSceneLeft.setIcon(Icons.BTN_ICON_LEFT);
+        this.btnSceneRight.setIcon(Icons.BTN_ICON_RIGHT);
+        this.btnSceneUp.setIcon(Icons.BTN_ICON_UP);
+        this.btnZoomUp.setIcon(Icons.BTN_ICON_ZOOM_UP);
+        this.btnZoomDown.setIcon(Icons.BTN_ICON_ZOOM_DOWN);
+
         this.btnSceneDown.setText("");
         this.btnSceneLeft.setText("");
         this.btnSceneRight.setText("");
         this.btnSceneUp.setText("");
-        
+
         this.btnSceneDown.setPreferredSize(new Dimension(Other.getBTN_WIDTH(), Other.getBTN_HEIGHT()));
         this.btnSceneLeft.setPreferredSize(new Dimension(Other.getBTN_WIDTH(), Other.getBTN_HEIGHT()));
         this.btnSceneRight.setPreferredSize(new Dimension(Other.getBTN_WIDTH(), Other.getBTN_HEIGHT()));
         this.btnSceneUp.setPreferredSize(new Dimension(Other.getBTN_WIDTH(), Other.getBTN_HEIGHT()));
-        
+
     }
 
     /**
@@ -51,9 +50,6 @@ public class Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         btnSceneDown = new javax.swing.JButton();
         btnSceneUp = new javax.swing.JButton();
         btnSceneRight = new javax.swing.JButton();
@@ -61,16 +57,9 @@ public class Frame extends javax.swing.JFrame {
         btnZoomDown = new javax.swing.JButton();
         btnZoomUp = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton1.setText("jButton1");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
-        jLabel1.setText("jLabel1");
+        setTitle("Control");
+        setBounds(new java.awt.Rectangle(0, 200, 0, 0));
+        setResizable(false);
 
         btnSceneDown.setText("1");
         btnSceneDown.setPreferredSize(new java.awt.Dimension(42, 42));
@@ -81,6 +70,9 @@ public class Frame extends javax.swing.JFrame {
         });
 
         btnSceneUp.setText("1");
+        btnSceneUp.setMaximumSize(new java.awt.Dimension(42, 42));
+        btnSceneUp.setMinimumSize(new java.awt.Dimension(42, 42));
+        btnSceneUp.setPreferredSize(new java.awt.Dimension(42, 42));
         btnSceneUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSceneUpActionPerformed(evt);
@@ -121,22 +113,15 @@ public class Frame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSceneLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSceneDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSceneRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnZoomDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSceneUp, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,12 +132,7 @@ public class Frame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnZoomUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,7 +140,7 @@ public class Frame extends javax.swing.JFrame {
                         .addComponent(btnSceneRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSceneUp)
+                            .addComponent(btnSceneUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnZoomDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -169,51 +149,40 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-//        try {
-//            PlanetParameters.setRADIUS(Integer.parseInt(this.jTextField1.getText()));
-//            PlanetParameters.X = Integer.parseInt(this.jTextField1.getText());
-//        } catch (Exception e) {
-//            PlanetParameters.setRADIUS(0);
-//            PlanetParameters.X = 0;
-//            System.out.println("EEEERRROOORRR");
-//        }
-//        jLabel1.setText(PlanetParameters.getRADIUS() + "");
-        
-    }//GEN-LAST:event_jButton1MouseClicked
-
     private void btnSceneUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneUpActionPerformed
-//        Constants.setY(Constants.getY() - Other.getY_STEP());
+        NullPosition.setINSTANSE_Y(-Other.getY_STEP());
     }//GEN-LAST:event_btnSceneUpActionPerformed
 
     private void btnZoomUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnZoomUpMouseClicked
-//        Constants.setSCALE((float) (Constants.getSCALE() + Other.getSCALE_STEP()));
+        NullScale.setScale(Other.getSCALE_STEP());
     }//GEN-LAST:event_btnZoomUpMouseClicked
 
     private void btnZoomDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnZoomDownMouseClicked
-//        Constants.setSCALE((float) (Constants.getSCALE() - Other.getSCALE_STEP()));
+        NullScale.setScale(-Other.getSCALE_STEP());
     }//GEN-LAST:event_btnZoomDownMouseClicked
 
     private void btnSceneDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneDownMouseClicked
-//        Constants.setY(Constants.getY() + Other.getY_STEP());
+        NullPosition.setINSTANSE_Y(Other.getY_STEP());
     }//GEN-LAST:event_btnSceneDownMouseClicked
 
     private void btnSceneRightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneRightMouseClicked
-//        Constants.setX(Constants.getX() - Other.getX_STEP());
+        NullPosition.setINSTANSE_X(-Other.getX_STEP());
     }//GEN-LAST:event_btnSceneRightMouseClicked
 
     private void btnSceneLeftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneLeftMouseClicked
-//        Constants.setX(Constants.getX() + Other.getX_STEP());
+        NullPosition.setINSTANSE_X(Other.getX_STEP());
     }//GEN-LAST:event_btnSceneLeftMouseClicked
 
     /**
      * @param args the command line arguments
      */
 //    public static void main(String args[]) {
-//              new Frame().setVisible(true);
+//              new Control().setVisible(true);
 //            }
 //        });
 //        
@@ -230,20 +199,20 @@ public class Frame extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Control.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Control.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Control.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Control.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new Frame().setVisible(true);
+//                new Control().setVisible(true);
 //            }
 //        });
 //        
@@ -256,8 +225,5 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton btnSceneUp;
     private javax.swing.JButton btnZoomDown;
     private javax.swing.JButton btnZoomUp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
