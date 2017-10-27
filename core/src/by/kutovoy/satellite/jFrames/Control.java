@@ -58,6 +58,8 @@ public class Control extends javax.swing.JFrame {
         btnZoomUp = new javax.swing.JButton();
 
         setTitle("Control");
+        setBounds(new java.awt.Rectangle(0, 200, 0, 0));
+        setResizable(false);
 
         btnSceneDown.setText("1");
         btnSceneDown.setPreferredSize(new java.awt.Dimension(42, 42));
@@ -146,6 +148,8 @@ public class Control extends javax.swing.JFrame {
                             .addComponent(btnSceneLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

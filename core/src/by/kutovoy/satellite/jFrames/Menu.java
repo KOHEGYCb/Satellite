@@ -18,11 +18,15 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+
         this.control = new Control();
-        
-        isControlVisible = false;
-        control.setVisible(isControlVisible);
-        
+        this.satelliteAdd = new SatelliteAdd();
+        this.satelliteRemove = new SatelliteRemove();
+
+        this.control.setVisible(false);
+        this.satelliteAdd.setVisible(false);
+        this.satelliteRemove.setVisible(false);
+
     }
 
     /**
@@ -41,6 +45,10 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Satellite");
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         btnControl.setText("Control");
         btnControl.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -53,9 +61,20 @@ public class Menu extends javax.swing.JFrame {
         textSatellite.setText("Satellite");
 
         btnSatelliteAdd.setText("Add");
+        btnSatelliteAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSatelliteAddMouseClicked(evt);
+            }
+        });
 
         btnSatelliteRemove.setText("Remove");
+        btnSatelliteRemove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSatelliteRemoveMouseClicked(evt);
+            }
+        });
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Control");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -63,32 +82,30 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnControl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textSatellite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btnSatelliteAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSatelliteRemove)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnControl))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(textSatellite, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnSatelliteRemove)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textSatellite)
-                    .addComponent(jLabel1))
+                .addComponent(textSatellite)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSatelliteAdd)
-                    .addComponent(btnSatelliteRemove)
-                    .addComponent(btnControl))
+                    .addComponent(btnSatelliteRemove))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnControl)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -96,14 +113,28 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnControlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnControlMouseClicked
-        if(isControlVisible){
-            control.setVisible(!isControlVisible);
-            isControlVisible = !isControlVisible;
-        }else{
-            control.setVisible(!isControlVisible);
-            isControlVisible = !isControlVisible;
+        if (control.isVisible()) {
+            control.setVisible(false);
+        } else {
+            control.setVisible(true);
         }
     }//GEN-LAST:event_btnControlMouseClicked
+
+    private void btnSatelliteAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSatelliteAddMouseClicked
+        if (satelliteAdd.isVisible()) {
+            satelliteAdd.setVisible(false);
+        } else {
+            satelliteAdd.setVisible(true);
+        }
+    }//GEN-LAST:event_btnSatelliteAddMouseClicked
+
+    private void btnSatelliteRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSatelliteRemoveMouseClicked
+        if (satelliteRemove.isVisible()){
+            satelliteRemove.setVisible(false);
+        }else{
+            satelliteRemove.setVisible(true);
+        }
+    }//GEN-LAST:event_btnSatelliteRemoveMouseClicked
 
     /**
      * @param args the command line arguments
@@ -140,8 +171,10 @@ public class Menu extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-    private Control control;
-    private boolean isControlVisible;
+    private JFrame control;
+    private JFrame satelliteAdd;
+    private JFrame satelliteRemove;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnControl;
     private javax.swing.JButton btnSatelliteAdd;

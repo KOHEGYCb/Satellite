@@ -1,10 +1,10 @@
 package by.kutovoy.satellite.beans;
 
-import by.kutovoy.satellite.enums.Strings;
 import by.kutovoy.satellite.positions.NullPosition;
 import by.kutovoy.satellite.positions.NullScale;
 import by.kutovoy.satellite.positions.Position;
 import by.kutovoy.satellite.positions.Size;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 /**
@@ -15,8 +15,12 @@ public class Satellite extends Entity {
 
     private Planet planet;
 
-    public Satellite(Position position){
-        super(position, Strings.IMAGE_SATELLITE_GREEN, new Size(32, 32));
+//    public Satellite(Position position, String name){
+//        super(position, Textures.TEXTURE_GREEN_SATELLITE, new Size(32, 32), name);
+//    }
+    
+    public Satellite(Position position, Texture texture, String name){
+        super(texture, new Size(32, 32), name);
     }
     
     @Override
@@ -31,4 +35,10 @@ public class Satellite extends Entity {
         return "\nSatellite:\n   ID: " + getId();
     }
 
+    @Override
+    public void setPosition(Position position) {
+        
+    }
+
+    
 }

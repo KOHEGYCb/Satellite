@@ -14,6 +14,25 @@ public class Satellites {
 
     private static final List<Satellite> INSTANCE = new ArrayList<Satellite>();
 
+    public static boolean isNewName(String name) {
+        boolean isNew = true;
+        for (Satellite satellite : INSTANCE){
+            if(satellite.getName().equals(name)){
+                isNew = false;
+            }
+        }
+        return isNew;
+    }
+
+    public static Satellite getElementByName(String text) {
+        for (Satellite satellite :INSTANCE){
+            if (text.equals(satellite.getName())){
+                return satellite;
+            }
+        }
+        return null;
+    }
+
     private  Satellites() {}
     
     public static List<Satellite> getINSTANCE(){
