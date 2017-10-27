@@ -29,12 +29,10 @@ public class SatelliteAdd extends javax.swing.JFrame {
     private void initComponents() {
 
         inputTextPositionX = new javax.swing.JTextField();
-        inputTextPositionY = new javax.swing.JTextField();
         SatelliteColorRed = new javax.swing.JRadioButton();
         SatelliteColorYellow = new javax.swing.JRadioButton();
         SatelliteColorGreen = new javax.swing.JRadioButton();
         textPositionX = new javax.swing.JLabel();
-        textPositionY = new javax.swing.JLabel();
         TextSelectColor = new javax.swing.JLabel();
         btnSatellateAdd = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
@@ -43,8 +41,6 @@ public class SatelliteAdd extends javax.swing.JFrame {
         textName = new javax.swing.JLabel();
 
         inputTextPositionX.setText("000");
-
-        inputTextPositionY.setText("000");
 
         SatelliteColorRed.setText("Red");
         SatelliteColorRed.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,9 +63,7 @@ public class SatelliteAdd extends javax.swing.JFrame {
             }
         });
 
-        textPositionX.setText("set x position");
-
-        textPositionY.setText("set y position");
+        textPositionX.setText("set radius position");
 
         TextSelectColor.setText("Select color");
 
@@ -107,53 +101,49 @@ public class SatelliteAdd extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textError)
-                            .addComponent(TextSelectColor)
-                            .addComponent(SatelliteColorRed)
-                            .addComponent(SatelliteColorYellow)
-                            .addComponent(SatelliteColorGreen)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(inputTextPositionX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textPositionX)))
+                                .addComponent(textPositionX))
+                            .addComponent(SatelliteColorRed)
+                            .addComponent(SatelliteColorYellow))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(inputTextPositionY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textPositionY)
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inputName, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))
+                            .addComponent(TextSelectColor)
+                            .addComponent(SatelliteColorGreen))
+                        .addGap(84, 84, 84)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputName, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(textName, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputTextPositionX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textPositionX)
+                    .addComponent(textPositionX))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextSelectColor)
                     .addComponent(textName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputTextPositionY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textPositionY)
+                    .addComponent(SatelliteColorGreen)
                     .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(TextSelectColor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SatelliteColorGreen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SatelliteColorRed)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SatelliteColorYellow)
-                .addGap(18, 18, 18)
-                .addComponent(textError, javax.swing.GroupLayout.DEFAULT_SIZE, 8, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
+                .addComponent(textError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSatellateAdd)
                     .addComponent(btnCancel))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,10 +270,8 @@ public class SatelliteAdd extends javax.swing.JFrame {
     private javax.swing.JButton btnSatellateAdd;
     private javax.swing.JTextField inputName;
     private javax.swing.JTextField inputTextPositionX;
-    private javax.swing.JTextField inputTextPositionY;
     private javax.swing.JLabel textError;
     private javax.swing.JLabel textName;
     private javax.swing.JLabel textPositionX;
-    private javax.swing.JLabel textPositionY;
     // End of variables declaration//GEN-END:variables
 }
