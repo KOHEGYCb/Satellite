@@ -2,6 +2,7 @@ package by.kutovoy.satellite.jFrames;
 
 import by.kutovoy.satellite.beans.Satellite;
 import by.kutovoy.satellite.beans.Satellites;
+import by.kutovoy.satellite.enums.Sizes;
 import by.kutovoy.satellite.enums.Textures;
 import by.kutovoy.satellite.positions.Position;
 import com.badlogic.gdx.graphics.Texture;
@@ -100,20 +101,17 @@ public class SatelliteAdd extends javax.swing.JFrame {
                         .addComponent(btnCancel))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textError)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(inputTextPositionX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textPositionX))
-                            .addComponent(SatelliteColorRed)
-                            .addComponent(SatelliteColorYellow))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TextSelectColor)
-                            .addComponent(SatelliteColorGreen))
-                        .addGap(84, 84, 84)
+                            .addComponent(SatelliteColorGreen)
+                            .addComponent(textError)
+                            .addComponent(SatelliteColorRed)
+                            .addComponent(SatelliteColorYellow)
+                            .addComponent(inputTextPositionX, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(textPositionX)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(inputName, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                             .addComponent(textName, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))
                 .addContainerGap())
@@ -166,32 +164,31 @@ public class SatelliteAdd extends javax.swing.JFrame {
             valid = false;
             error = error + "Choose color; \n";
         }
-        int x = 0;
+        int radius = 0;
         try {
-            x = Integer.parseInt(this.inputTextPositionX.getText());
+            radius = Integer.parseInt(this.inputTextPositionX.getText());
         } catch (NumberFormatException nfe) {
             valid = false;
-            error = error + "x not a number; \n";
+            error = error + "radius not a number; \n";
         }
-        int y = 0;
-        try {
-            y = Integer.parseInt(this.inputTextPositionY.getText());
-        } catch (NumberFormatException nfe) {
-            valid = false;
-            error = error + "y not a number; \n";
+        if (valid) {
+            if (radius <= Sizes.Planet.getX()/2) {
+                valid = false;
+                error = error + "radius is small; \n";
+            }
         }
         String name = inputName.getText();
-        if (Satellites.isNewName(name)){
-            if (name.equals("")){
+        if (Satellites.isNewName(name)) {
+            if (name.equals("")) {
                 valid = false;
                 error = error + "Set name; ";
             }
-        }else{
+        } else {
             valid = false;
-            error = error + "Name alredy used; "; 
+            error = error + "Name alredy used; ";
         }
         if (valid) {
-            Satellites.getINSTANCE().add(new Satellite(new Position(x, y), texture, name));
+            Satellites.getINSTANCE().add(new Satellite(radius, texture, name));
         }
         textError.setText(error);
 
@@ -218,7 +215,6 @@ public class SatelliteAdd extends javax.swing.JFrame {
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         inputTextPositionX.setText("000");
-        inputTextPositionY.setText("000");
         inputName.setText("name");
         SatelliteColorGreen.setSelected(false);
         SatelliteColorRed.setSelected(false);
