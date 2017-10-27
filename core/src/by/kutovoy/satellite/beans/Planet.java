@@ -15,7 +15,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 public class Planet extends Entity {
 
     public Planet(Position position, Texture texture) {
-        super(position, texture, Sizes.Planet);
+        super(position, texture, Sizes.Planet, "Earth");
     }
 
     @Override

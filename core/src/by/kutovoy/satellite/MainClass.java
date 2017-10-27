@@ -5,6 +5,7 @@ import by.kutovoy.satellite.beans.Satellite;
 import by.kutovoy.satellite.beans.Satellites;
 import by.kutovoy.satellite.enums.Constants;
 import by.kutovoy.satellite.enums.Strings;
+import by.kutovoy.satellite.enums.Textures;
 import by.kutovoy.satellite.positions.Position;
 import by.kutovoy.satellite.positions.Size;
 import com.badlogic.gdx.ApplicationAdapter;
@@ -19,12 +20,18 @@ public class MainClass extends ApplicationAdapter {
 
     private SpriteBatch batch;
     private Planet planet;
-    
+    private List<Texture> satellitesTexture = new ArrayList<Texture>();
+
     @Override
     public void create() {
         batch = new SpriteBatch();
-        planet = new Planet(new Position(10, 10), new Texture(Strings.IMAGE_PLANET_EARTH));
-        Satellites.getINSTANCE().add(new Satellite(new Position(200, 200)));
+        planet = new Planet(new Position(10, 10), Textures.TEXTURE_GREEN_SATELLITE);
+        
+        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_GREEN));
+        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_RED));
+        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_YELLOW));
+
+//        Satellites.getINSTANCE().add(new Satellite(new Position(200, 200)));
 //        s = new Satellite();
     }
 
@@ -32,14 +39,10 @@ public class MainClass extends ApplicationAdapter {
 //    double x = 0;
 //    double y = 0;
 //    double deg = 0;
-
- 
-
 //    int timer = 0;
 //    double x = 0;
 //    double y = 0;
 //    double deg = 0;
-
     @Override
     public void render() {
 //        timer++;
@@ -47,8 +50,8 @@ public class MainClass extends ApplicationAdapter {
 //            if (x > 1) {
 //                x = -1;
 //            }
-            Gdx.gl.glClearColor(0, 0, 0, 1);
-            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 //            x = x + 0.01;
 //            y = (1 - x * x);
 //            if (y <= 0) {
@@ -59,13 +62,13 @@ public class MainClass extends ApplicationAdapter {
 //                y = Math.sqrt(y);
 //            }
 //            double x1 = x * PlanetParameters.getRADIUS(), y1 = y * PlanetParameters.getRADIUS();
-            batch.begin();
+        batch.begin();
 //            planet.draw(batch);
-            Satellites.draw(batch);
+        Satellites.draw(batch);
 //            batch.draw(img, PlanetParameters.getX(), PlanetParameters.getY(), PlanetParameters.getRADIUS(), PlanetParameters.getRADIUS());
 //		batch.draw(s.getTexture(), (s.getxPos()+PlanetParameters.getX()), (s.getyPos()+PlanetParameters.getY()));
 //            batch.draw(s.getTexture(), (int) x1 + PlanetParameters.getX(), (int) y1 + PlanetParameters.getY(), 16, 16);
-            batch.end();
+        batch.end();
 //            deg = Constants.getPAD_TO_DEG(deg);
 //            System.out.println("Scale" + Constants.getSCALE());
 //            System.out.println("Radius" + PlanetParameters.getRADIUS());
