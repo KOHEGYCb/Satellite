@@ -50,9 +50,10 @@ public class Satellites {
     
     public static void draw(Batch batch){
         for (Satellite satellite : INSTANCE){
-            int x = satellite.getPosition().getX() + NullPosition.getINSTANSE().getX();
-        int y = satellite.getPosition().getY() + NullPosition.getINSTANSE().getY();
-        batch.draw(satellite.getTexture(), x, y, satellite.getSize().getX() * (float) NullScale.INSTANSE, satellite.getSize().getY() * (float) NullScale.INSTANSE);
+            satellite.draw(batch);
+//            int x = satellite.getPosition().getX() + NullPosition.getINSTANSE().getX();
+//        int y = satellite.getPosition().getY() + NullPosition.getINSTANSE().getY();
+//        batch.draw(satellite.getTexture(), x, y, satellite.getSize().getX() * (float) NullScale.INSTANSE, satellite.getSize().getY() * (float) NullScale.INSTANSE);
         }
     }
     

@@ -4,7 +4,7 @@ package by.kutovoy.satellite.enums;
  *
  * @author dmitry
  */
-public class Other {
+public class ControlParameters {
 
     /**
      * @return the BTN_WIDTH
@@ -41,7 +41,7 @@ public class Other {
         return SCALE_STEP;
     }
 
-    private Other(){}
+    private ControlParameters(){}
     
     private static final int BTN_WIDTH = 42;
     private static final int BTN_HEIGHT = 42;
