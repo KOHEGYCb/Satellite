@@ -3,6 +3,7 @@ package by.kutovoy.satellite.beans;
 import by.kutovoy.satellite.enums.Sizes;
 import by.kutovoy.satellite.positions.NullPosition;
 import by.kutovoy.satellite.positions.NullScale;
+import by.kutovoy.satellite.positions.PlanetPosition;
 import by.kutovoy.satellite.positions.Position;
 import by.kutovoy.satellite.positions.Size;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,6 +17,8 @@ public class Planet extends Entity {
 
     public Planet(Position position, Texture texture) {
         super(position, texture, Sizes.Planet, "Earth");
+        PlanetPosition.PlanetPosition = position;
+        System.out.println("X|Y" + PlanetPosition.getCenter().getX() + "|" + PlanetPosition.getCenter().getY());
     }
 
     @Override

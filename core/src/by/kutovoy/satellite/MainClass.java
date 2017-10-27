@@ -20,16 +20,16 @@ public class MainClass extends ApplicationAdapter {
 
     private SpriteBatch batch;
     private Planet planet;
-    private List<Texture> satellitesTexture = new ArrayList<Texture>();
+//    private List<Texture> satellitesTexture = new ArrayList<Texture>();
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        planet = new Planet(new Position(10, 10), Textures.TEXTURE_GREEN_SATELLITE);
-        
-        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_GREEN));
-        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_RED));
-        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_YELLOW));
+        planet = new Planet(new Position(200, 200), Textures.TEXTURE_PLANET_EARTH);
+//        
+//        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_GREEN));
+//        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_RED));
+//        satellitesTexture.add(new Texture(Strings.IMAGE_SATELLITE_YELLOW));
 
 //        Satellites.getINSTANCE().add(new Satellite(new Position(200, 200)));
 //        s = new Satellite();
@@ -63,7 +63,7 @@ public class MainClass extends ApplicationAdapter {
 //            }
 //            double x1 = x * PlanetParameters.getRADIUS(), y1 = y * PlanetParameters.getRADIUS();
         batch.begin();
-//            planet.draw(batch);
+        planet.draw(batch);
         Satellites.draw(batch);
 //            batch.draw(img, PlanetParameters.getX(), PlanetParameters.getY(), PlanetParameters.getRADIUS(), PlanetParameters.getRADIUS());
 //		batch.draw(s.getTexture(), (s.getxPos()+PlanetParameters.getX()), (s.getyPos()+PlanetParameters.getY()));
