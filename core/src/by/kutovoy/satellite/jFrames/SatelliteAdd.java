@@ -4,7 +4,6 @@ import by.kutovoy.satellite.beans.Satellite;
 import by.kutovoy.satellite.beans.Satellites;
 import by.kutovoy.satellite.enums.Sizes;
 import by.kutovoy.satellite.enums.Textures;
-import by.kutovoy.satellite.positions.Position;
 import com.badlogic.gdx.graphics.Texture;
 
 /**
@@ -172,7 +171,7 @@ public class SatelliteAdd extends javax.swing.JFrame {
             error = error + "radius not a number; \n";
         }
         if (valid) {
-            if (radius <= Sizes.Planet.getX()/2) {
+            if (radius <= Sizes.PLANET.getX()/2) {
                 valid = false;
                 error = error + "radius is small; \n";
             }
@@ -221,41 +220,6 @@ public class SatelliteAdd extends javax.swing.JFrame {
         SatelliteColorYellow.setSelected(false);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(SatelliteAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(SatelliteAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(SatelliteAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(SatelliteAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new SatelliteAdd().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton SatelliteColorGreen;
