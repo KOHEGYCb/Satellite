@@ -5,7 +5,6 @@ import by.kutovoy.satellite.positions.NullPosition;
 import by.kutovoy.satellite.positions.NullScale;
 import by.kutovoy.satellite.positions.PlanetPosition;
 import by.kutovoy.satellite.positions.Position;
-import by.kutovoy.satellite.positions.Size;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
@@ -16,9 +15,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 public class Planet extends Entity {
 
     public Planet(Position position, Texture texture) {
-        super(position, texture, Sizes.Planet, "Earth");
+        super(position, texture, Sizes.PLANET, "Earth");
         PlanetPosition.PlanetPosition = position;
-        System.out.println("X|Y" + PlanetPosition.getCenter().getX() + "|" + PlanetPosition.getCenter().getY());
     }
 
     @Override
@@ -26,11 +24,6 @@ public class Planet extends Entity {
         int x = getPosition().getX() + NullPosition.getINSTANSE().getX();
         int y = getPosition().getY() + NullPosition.getINSTANSE().getY();
         batch.draw(getTexture(), x, y, getSize().getX() * (float) NullScale.INSTANSE, getSize().getY() * (float) NullScale.INSTANSE);
-    }
-
-    @Override
-    public String toString() {
-        return "Planet:\n   ID: " + getId();
     }
 
 }

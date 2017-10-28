@@ -33,33 +33,15 @@ public abstract class Entity {
         this.name = name;
     }
 
-    public Entity(Position position, String texture, Size size, String name) {
-        setId();
-        this.position = position;
-        this.texture = new Texture(texture);
-        this.size = size;
-        this.name = name;
-    }
-
-    public Entity(Position position, Size size, String name) {
-        setId();
-        this.position = position;
-        this.size = size;
-        this.name = name;
-    }
-
     public Entity(Texture texture, Size size, String name) {
         setId();
-        this.position = new Position(0, 0);        
+        this.position = new Position(0, 0);
         this.texture = texture;
         this.size = size;
         this.name = name;
     }
 
     public abstract void draw(Batch batch);
-
-    @Override
-    public abstract String toString();
 
     public void dispose() {
         texture.dispose();
