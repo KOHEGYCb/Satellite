@@ -1,6 +1,7 @@
 package by.kutovoy.satellite.beans;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +39,9 @@ public class Satellites {
         return INSTANCE;
     }
 
-    public static void draw(Batch batch) {
+    public static void draw(Batch batch, BitmapFont font) {
         for (Satellite satellite : INSTANCE) {
-            satellite.draw(batch);
+            satellite.draw(batch, font);
         }
     }
 
