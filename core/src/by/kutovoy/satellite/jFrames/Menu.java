@@ -16,7 +16,8 @@ public class Menu extends javax.swing.JFrame {
 
         this.control = new Control();
         this.satelliteAdd = new SatelliteAdd();
-        this.satelliteRemove = new SatelliteRemove();
+//        this.satelliteRemove = new SatelliteRemove();
+        this.satelliteRemove = new Remove();
 
         this.control.setVisible(false);
         this.satelliteAdd.setVisible(false);
