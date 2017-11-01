@@ -19,7 +19,6 @@ public class Planet extends Entity {
         PlanetPosition.PlanetPosition = position;
     }
 
-    @Override
     public void draw(Batch batch) {
         int x = getPosition().getX() + NullPosition.getINSTANSE().getX();
         int y = getPosition().getY() + NullPosition.getINSTANSE().getY();
