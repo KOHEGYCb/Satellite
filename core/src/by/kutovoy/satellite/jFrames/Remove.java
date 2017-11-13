@@ -15,7 +15,6 @@ public class Remove extends javax.swing.JFrame {
      */
     public Remove() {
         initComponents();
-//        jComboBox1 = new JComboBox<String>();
     }
 
     /**
@@ -77,11 +76,12 @@ public class Remove extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void btnRemoveMouseClicked(java.awt.event.MouseEvent evt) { 
+        //удаление спутника
         Satellites.getINSTANCE().remove(Satellites.getElementByName((String) jComboBox1.getSelectedItem()));
-//        System.out.println(jComboBox1.getSelectedItem());
     }                                      
 
-    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {                                       
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {    
+        //обновление списка
         jComboBox1.removeAllItems();
         for (Satellite satellite : Satellites.getINSTANCE()) {
             jComboBox1.addItem(satellite.getName());

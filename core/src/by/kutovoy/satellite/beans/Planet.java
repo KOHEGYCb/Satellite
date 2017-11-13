@@ -19,9 +19,10 @@ public class Planet extends Entity {
         PlanetPosition.PlanetPosition = position;
     }
 
-    public void draw(Batch batch) {
-        int x = getPosition().getX() + NullPosition.getINSTANSE().getX();
+    public void draw(Batch batch) {                                         //отрисовка планеты
+        int x = getPosition().getX() + NullPosition.getINSTANSE().getX();   //вычисляем положение; 2 строки
         int y = getPosition().getY() + NullPosition.getINSTANSE().getY();
+        //отрисовка иконки планеты
         batch.draw(getTexture(), x, y, getSize().getX() * (float) NullScale.INSTANSE, getSize().getY() * (float) NullScale.INSTANSE);
     }
 

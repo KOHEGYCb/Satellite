@@ -147,9 +147,10 @@ public class SatelliteAdd extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSatellateAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSatellateAddMouseClicked
-        boolean valid = true;
-        String error = "";
+        boolean valid = true;                               //переменная валидности параметров
+        String error = "";          
         Texture texture = null;
+        //проверка выбора текстуры
         if (SatelliteColorGreen.isSelected()) {
             texture = Textures.TEXTURE_GREEN_SATELLITE;
         }
@@ -163,21 +164,23 @@ public class SatelliteAdd extends javax.swing.JFrame {
             valid = false;
             error = error + "Choose color; \n";
         }
+        //проверка радиуса
         int radius = 0;
         try {
-            radius = Integer.parseInt(this.inputTextPositionX.getText());
+            radius = Integer.parseInt(this.inputTextPositionX.getText()); //проверка на ввод числа
         } catch (NumberFormatException nfe) {
             valid = false;
             error = error + "radius not a number; \n";
         }
         if (valid) {
-            if (radius <= Sizes.PLANET.getX()/2) {
+            if (radius <= Sizes.PLANET.getX()/2) {                          //проверка на минимальный радиус
                 valid = false;
                 error = error + "radius is small; \n";
             }
         }
+        //проверка имени
         String name = inputName.getText();
-        if (Satellites.isNewName(name)) {
+        if (Satellites.isNewName(name)) {                       //проверка на новое имя
             if (name.equals("")) {
                 valid = false;
                 error = error + "Set name; ";
@@ -186,6 +189,7 @@ public class SatelliteAdd extends javax.swing.JFrame {
             valid = false;
             error = error + "Name alredy used; ";
         }
+        //при прохождении валидации создание спутника
         if (valid) {
             Satellites.getINSTANCE().add(new Satellite(radius, texture, name));
         }
@@ -193,7 +197,7 @@ public class SatelliteAdd extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnSatellateAddMouseClicked
-
+// сброс выделения по цвету
     private void SatelliteColorGreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SatelliteColorGreenMouseClicked
         SatelliteColorGreen.setSelected(true);
         SatelliteColorYellow.setSelected(false);
@@ -211,7 +215,7 @@ public class SatelliteAdd extends javax.swing.JFrame {
         SatelliteColorYellow.setSelected(true);
         SatelliteColorRed.setSelected(false);
     }//GEN-LAST:event_SatelliteColorYellowMouseClicked
-
+//проверка на нажатие кнопки отмены
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         inputTextPositionX.setText("000");
         inputName.setText("name");

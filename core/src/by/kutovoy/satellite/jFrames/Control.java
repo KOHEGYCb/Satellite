@@ -16,19 +16,20 @@ public class Control extends javax.swing.JFrame {
      * Creates new form Frame
      */
     public Control() {
-        initComponents();
-        this.btnSceneDown.setIcon(Icons.BTN_ICON_DOWN);
+        initComponents();                                       //инициализация всех компанентов
+        this.btnSceneDown.setIcon(Icons.BTN_ICON_DOWN);         //добавление иконки к каждой кнопке; 6 штук
         this.btnSceneLeft.setIcon(Icons.BTN_ICON_LEFT);
         this.btnSceneRight.setIcon(Icons.BTN_ICON_RIGHT);
         this.btnSceneUp.setIcon(Icons.BTN_ICON_UP);
         this.btnZoomUp.setIcon(Icons.BTN_ICON_ZOOM_UP);
         this.btnZoomDown.setIcon(Icons.BTN_ICON_ZOOM_DOWN);
 
-        this.btnSceneDown.setText("");
+        this.btnSceneDown.setText("");                          //обнуление текста; 4 шт
         this.btnSceneLeft.setText("");
         this.btnSceneRight.setText("");
         this.btnSceneUp.setText("");
-
+        
+        //указание размера кнопок
         this.btnSceneDown.setPreferredSize(new Dimension(ControlParameters.getBTN_WIDTH(), ControlParameters.getBTN_HEIGHT()));
         this.btnSceneLeft.setPreferredSize(new Dimension(ControlParameters.getBTN_WIDTH(), ControlParameters.getBTN_HEIGHT()));
         this.btnSceneRight.setPreferredSize(new Dimension(ControlParameters.getBTN_WIDTH(), ControlParameters.getBTN_HEIGHT()));
@@ -150,27 +151,27 @@ public class Control extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSceneUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneUpActionPerformed
-        NullPosition.setINSTANSE_Y(-ControlParameters.getY_STEP());
+        NullPosition.setINSTANSE_Y(-ControlParameters.getY_STEP());         //при нажатии перемещение камеры вверх
     }//GEN-LAST:event_btnSceneUpActionPerformed
 
     private void btnZoomUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnZoomUpMouseClicked
-        NullScale.setScale(ControlParameters.getSCALE_STEP());
+        NullScale.setScale(ControlParameters.getSCALE_STEP());         //при нажатии приближеня камеры
     }//GEN-LAST:event_btnZoomUpMouseClicked
 
     private void btnZoomDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnZoomDownMouseClicked
-        NullScale.setScale(-ControlParameters.getSCALE_STEP());
+        NullScale.setScale(-ControlParameters.getSCALE_STEP());         //при нажатии удаления камеры
     }//GEN-LAST:event_btnZoomDownMouseClicked
 
     private void btnSceneDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneDownMouseClicked
-        NullPosition.setINSTANSE_Y(ControlParameters.getY_STEP());
+        NullPosition.setINSTANSE_Y(ControlParameters.getY_STEP());         //при нажатии перемещение камеры вниз
     }//GEN-LAST:event_btnSceneDownMouseClicked
 
     private void btnSceneRightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneRightMouseClicked
-        NullPosition.setINSTANSE_X(-ControlParameters.getX_STEP());
+        NullPosition.setINSTANSE_X(-ControlParameters.getX_STEP());         //при нажатии перемещение камеры вправо
     }//GEN-LAST:event_btnSceneRightMouseClicked
 
     private void btnSceneLeftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSceneLeftMouseClicked
-        NullPosition.setINSTANSE_X(ControlParameters.getX_STEP());
+        NullPosition.setINSTANSE_X(ControlParameters.getX_STEP());         //при нажатии перемещение камеры влево
     }//GEN-LAST:event_btnSceneLeftMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

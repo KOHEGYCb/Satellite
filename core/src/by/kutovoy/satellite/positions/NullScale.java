@@ -6,6 +6,7 @@ package by.kutovoy.satellite.positions;
  */
 public class NullScale {
     
+    //нулевой масштаб
     public static double INSTANSE = 1;
     
     public static void setScale(double s){

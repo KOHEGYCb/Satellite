@@ -6,6 +6,7 @@ package by.kutovoy.satellite.enums;
  */
 public class Constants {
 
+    //константы параметров планеты
     private static int PLANET_RADIUS = 300;
     private static double SCALE = 1;
     private static int X = 0;

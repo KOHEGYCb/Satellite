@@ -14,38 +14,34 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MainClass extends ApplicationAdapter {
 
-    private SpriteBatch batch;
-    private Planet planet;
-    private BitmapFont font;
+//    private SpriteBatch batch;
+    private Planet planet;      //создание объекта планеты
+    private BitmapFont font;    //создание шрифтов
 
     @Override
-    public void create() {
-        batch = new SpriteBatch();
-        planet = new Planet(new Position(200, 200), Textures.TEXTURE_PLANET_EARTH);
-        font = new BitmapFont();
-        font.setColor(Color.WHITE);
-    }
-    
-
-    @Override
-    public void render() {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        batch.begin();
-        planet.draw(batch);
-        Satellites.draw(batch, font);
-//        font.setColor(1f, 0f, 0f, 1f);
-//        font.draw(batch, "Hello World", 100, 100);
-        batch.end();
-        
+    public void create() {                                                          //метод запускается при создании окна отрисовки, выполняется 1 раз для инициализации всех переменных
+        planet = new Planet(new Position(200, 200), Textures.TEXTURE_PLANET_EARTH); //создаем планету, задаем позицию отображения и текстуру
+        font = new BitmapFont();                                                    //создание шрифта
+        font.setColor(Color.WHITE);                                                 //применение цвета для шрифта
     }
 
     @Override
-    public void dispose() {
-        batch.dispose();
-        planet.dispose();
-        Satellites.dispose();
-        font.dispose();
+    public void render() {                          //метод вызывается для отрисовки каждого кадра
+        Gdx.gl.glClearColor(0, 0, 0, 1);            //задание черного фона для области отрсовки
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);   //обнуление цвета       
+
+        Batch.INSTANCE.begin();                     //запускаем возможность отрисовки объектов
+        planet.draw(Batch.INSTANCE);                //выполняем отрисовку планеты
+        Satellites.draw(Batch.INSTANCE, font);      //выполняем отрисовку всех спутников
+        Batch.INSTANCE.end();                       //выходим из отрисовки
+
+    }
+
+    @Override
+    public void dispose() {                         //выполняется при завершении выполнения приложения
+        Batch.INSTANCE.dispose();                   //отключение отрисовки
+        planet.dispose();                           //выгрузка планеты
+        Satellites.dispose();                       //выгрузка спутников
+        font.dispose();                             //выгрузки шрифта
     }
 }

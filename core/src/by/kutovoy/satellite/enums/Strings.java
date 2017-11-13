@@ -5,7 +5,8 @@ package by.kutovoy.satellite.enums;
  * @author dmitry
  */
 public class Strings {
-
+    
+    //константы названий файлов
     public static final String IMAGE_PLANET_EARTH = "earth.png";
     public static final String IMAGE_SATELLITE_RED = "satellite_red.png";
     public static final String IMAGE_SATELLITE_GREEN = "satellite_green.png";

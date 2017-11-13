@@ -11,19 +11,19 @@ import java.util.List;
  */
 public class Satellites {
 
-    private static final List<Satellite> INSTANCE = new ArrayList<Satellite>();
+    private static final List<Satellite> INSTANCE = new ArrayList<Satellite>(); //создание константы списка спутников
 
-    public static boolean isNewName(String name) {
-        boolean isNew = true;
-        for (Satellite satellite : INSTANCE) {
+    public static boolean isNewName(String name) {          //метод для определения нового имени спутника
+        boolean isNew = true;                               
+        for (Satellite satellite : INSTANCE) {              //перечисляем все имеющиеся спутники и сравниваем между искомым совпадения по названию 
             if (satellite.getName().equals(name)) {
-                isNew = false;
+                isNew = false;                              //если названия совпали, то возвращаем false
             }
         }
         return isNew;
     }
 
-    public static Satellite getElementByName(String text) {
+    public static Satellite getElementByName(String text) {     //метод для вызова спутника по имени
         for (Satellite satellite : INSTANCE) {
             if (text.equals(satellite.getName())) {
                 return satellite;
@@ -35,17 +35,17 @@ public class Satellites {
     private Satellites() {
     }
 
-    public static List<Satellite> getINSTANCE() {
+    public static List<Satellite> getINSTANCE() {               //возвращаем список спутников
         return INSTANCE;
     }
 
-    public static void draw(Batch batch, BitmapFont font) {
+    public static void draw(Batch batch, BitmapFont font) {     //отрисовка спутников
         for (Satellite satellite : INSTANCE) {
-            satellite.draw(batch, font);
+            satellite.draw(batch, font);                        //каждый спутник по отдельности отрисовывается
         }
     }
 
-    public static void dispose() {
+    public static void dispose() {                              //выгрузка спутников из памяти
         for (Satellite satellite : INSTANCE) {
             satellite.dispose();
         }

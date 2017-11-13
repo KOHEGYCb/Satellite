@@ -8,6 +8,7 @@ import by.kutovoy.satellite.positions.Size;
  */
 public class Sizes {
     
+    //константы размера отображения текстур
     public static final Size PLANET = new Size(200, 200);
     public static final Size SATELLITE = new Size(32, 32);
     

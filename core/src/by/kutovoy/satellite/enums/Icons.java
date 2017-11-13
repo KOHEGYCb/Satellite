@@ -11,6 +11,7 @@ public class Icons {
         private Icons() {
     }
 
+    //константы иконок кнопки
     public static final ImageIcon BTN_ICON_UP = new ImageIcon(Strings.BTN_ICON_CLICK_UP);
     public static final ImageIcon BTN_ICON_DOWN = new ImageIcon(Strings.BTN_ICON_CLICK_DOWN);
     public static final ImageIcon BTN_ICON_LEFT = new ImageIcon(Strings.BTN_ICON_CLICK_LEFT);

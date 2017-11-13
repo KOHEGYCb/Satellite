@@ -16,9 +16,9 @@ public class Menu extends javax.swing.JFrame {
 
         this.control = new Control();
         this.satelliteAdd = new SatelliteAdd();
-//        this.satelliteRemove = new SatelliteRemove();
         this.satelliteRemove = new Remove();
-
+        
+        //делаем окна неотображаемыми
         this.control.setVisible(false);
         this.satelliteAdd.setVisible(false);
         this.satelliteRemove.setVisible(false);
@@ -131,10 +131,10 @@ public class Menu extends javax.swing.JFrame {
             satelliteRemove.setVisible(true);
         }
     }//GEN-LAST:event_btnSatelliteRemoveMouseClicked
-
-    private JFrame control;
-    private JFrame satelliteAdd;
-    private JFrame satelliteRemove;
+    
+    private JFrame control;             //создание окна управления
+    private JFrame satelliteAdd;        //создание окна добавления спутников
+    private JFrame satelliteRemove;     //создание окна удаления спутников
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnControl;

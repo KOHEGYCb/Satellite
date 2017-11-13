@@ -6,6 +6,7 @@ package by.kutovoy.satellite.positions;
  */
 public class Position {
     
+    //класс для задания позиции объектов
     private int x;
     private int y;
     

@@ -8,8 +8,11 @@ import by.kutovoy.satellite.enums.Sizes;
  */
 public class PlanetPosition{
 
+    //позиция планеты
+    
     public static Position PlanetPosition;
     
+    //получение центра отображения планеты
     public static Position getCenter(){
         Position center = new Position(PlanetPosition.getX() + Sizes.PLANET.getX()/2, PlanetPosition.getY() + Sizes.PLANET.getY()/2);
         return center;

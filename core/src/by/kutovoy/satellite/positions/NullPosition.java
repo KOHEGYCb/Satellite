@@ -6,6 +6,8 @@ package by.kutovoy.satellite.positions;
  */
 public class NullPosition {
 
+    
+    //нулевая позиция
     private static Position INSTANSE = new Position(0, 0);
 
     private NullPosition() {}

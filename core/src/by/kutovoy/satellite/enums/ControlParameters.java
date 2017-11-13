@@ -43,6 +43,7 @@ public class ControlParameters {
 
     private ControlParameters(){}
     
+    //константы перемежения камеры и размера кнопок
     private static final int BTN_WIDTH = 42;
     private static final int BTN_HEIGHT = 42;
     

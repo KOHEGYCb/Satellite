@@ -6,6 +6,7 @@ package by.kutovoy.satellite.positions;
  */
 public class Size {
 
+    //класс для применения размера объектов
     private int x;
     private int y;
 
